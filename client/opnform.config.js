@@ -1,5 +1,5 @@
 export default {
-  app_ame: "OpnForm",
+  app_ame: "vsForms",
   locale: "en",
   locales: { en: "EN" },
   githubAuth: null,
@@ -18,4 +18,4 @@ export default {
     roadmap: "https://feedback.opnform.com/roadmap",
     tech_docs: "https://docs.opnform.com",
   },
-}
+};

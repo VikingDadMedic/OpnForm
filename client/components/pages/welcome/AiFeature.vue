@@ -32,16 +32,16 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              Introducing OpnForm AI
+              Introducing vsForms AI + Toby AI
             </span>
 
             <h2
               class="mt-6 text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl"
             >
-              Say goodbye to tedious form building with OpnForm's new
+              Say goodbye to tedious form building with vsForms utilizing the new
               <span
                 class="text-transparent bg-clip-text bg-gradient-to-r lg:block from-blue-600 to-blue-300"
-              >AI-powered feature!</span>
+              >Toby AI integration!</span>
             </h2>
             <p
               class="mt-4 text-base font-medium leading-7 text-gray-500 sm:text-lg sm:leading-8"
@@ -50,7 +50,7 @@
               description.
             </p>
 
-            <div class="flex justify-center lg:justify-start mt-4">
+            <div class="flex justify-center mt-4 lg:justify-start">
               <v-button
                 v-track.welcome_ai_builder_click
                 class="block"
@@ -63,7 +63,7 @@
             </div>
 
             <ul
-              class="flex flex-wrap items-center justify-center mt-4 gap-4 text-sm font-medium text-gray-900 lg:justify-start"
+              class="flex flex-wrap items-center justify-center gap-4 mt-4 text-sm font-medium text-gray-900 lg:justify-start"
             >
               <li class="flex items-center gap-2">
                 <svg
@@ -79,7 +79,7 @@
                     clip-rule="evenodd"
                   />
                 </svg>
-                Create form in minutes
+                Create a form in minutes
               </li>
 
               <li class="flex items-center gap-2">
@@ -118,25 +118,25 @@
             </ul>
 
             <div
-              class="mt-6 sm:mt-8 flex text-center justify-center lg:justify-start"
+              class="flex justify-center mt-6 text-center sm:mt-8 lg:justify-start"
             >
-              <!--                <v-button v-if="!authenticated" class="mr-2 block" :to="{ name: 'forms-create-guest' }" :arrow="true">-->
+              <!--                <v-button v-if="!authenticated" class="block mr-2" :to="{ name: 'forms-create-guest' }" :arrow="true">-->
               <!--                  Get started for free-->
               <!--                </v-button>-->
-              <!--                <v-button v-else class="mr-2 block" :to="{ name: 'forms-create' }" :arrow="true">-->
+              <!--                <v-button v-else class="block mr-2" :to="{ name: 'forms-create' }" :arrow="true">-->
               <!--                  Get started for free-->
               <!--                </v-button>-->
-              <!--                <v-button color="light-gray" class="mr-1 block" :to="{ name: 'aiformbuilder' }">-->
+              <!--                <v-button color="light-gray" class="block mr-1" :to="{ name: 'aiformbuilder' }">-->
               <!--                  Learn more-->
               <!--                </v-button>-->
             </div>
           </div>
 
           <div
-            class="relative hidden lg:block w-full px-6 mx-auto mt-8 lg:px-0 sm:mt-12 lg:bottom-0 lg:absolute lg:-right-16 xl:right-0 lg:max-w-lg"
+            class="relative hidden w-full px-6 mx-auto mt-8 lg:block lg:px-0 sm:mt-12 lg:bottom-0 lg:absolute lg:-right-16 xl:right-0 lg:max-w-lg"
           >
             <img
-              class="rounded-t-2xl ring-1 ring-blue-100 lg:rounded-tr-none w-full"
+              class="w-full rounded-t-2xl ring-1 ring-blue-100 lg:rounded-tr-none"
               src="/img/pages/ai_form_builder/ai-feature-illustration.svg"
               alt="App screenshot"
             >

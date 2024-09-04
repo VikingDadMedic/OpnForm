@@ -222,7 +222,7 @@ export default {
         {
           target: "#v-step-0",
           header: {
-            title: "Welcome to the OpnForm Editor!",
+            title: "Welcome to the vsForms Editor!",
           },
           content: "Discover <strong>your form Editor</strong>!",
         },

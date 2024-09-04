@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white">
-    <div class="flex bg-gray-50 pb-5 border-b">
-      <div class="w-full md:w-4/5 lg:w-3/5 md:mx-auto md:max-w-4xl p-4">
+    <div class="flex pb-5 border-b bg-gray-50">
+      <div class="w-full p-4 md:w-4/5 lg:w-3/5 md:mx-auto md:max-w-4xl">
         <div class="pt-4 pb-0">
           <div class="flex">
             <h2 class="flex-grow text-gray-900">
@@ -12,7 +12,7 @@
               :to="{ name: 'forms-create' }"
             >
               <svg
-                class="w-4 h-4 text-white inline mr-1 -mt-1"
+                class="inline w-4 h-4 mr-1 -mt-1 text-white"
                 viewBox="0 0 14 14"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,18 +34,18 @@
     </div>
     <div class="flex bg-white">
       <div class="w-full md:w-4/5 lg:w-3/5 md:mx-auto md:max-w-4xl">
-        <div class="mt-4 pb-0">
+        <div class="pb-0 mt-4">
           <text-input
             v-if="forms.length > 0"
             v-model="search"
-            class="mb-6 px-4"
+            class="px-4 mb-6"
             name="search"
             label="Search a form"
             placeholder="Name of form to search"
           />
           <div
             v-if="allTags.length > 0"
-            class="mb-4 px-6"
+            class="px-6 mb-4"
           >
             <div
               v-for="tag in allTags"
@@ -75,12 +75,12 @@
               alt="search-not-found"
             >
 
-            <h3 class="w-full mt-4 text-center text-gray-900 font-semibold">
+            <h3 class="w-full mt-4 font-semibold text-center text-gray-900">
               No forms found
             </h3>
             <div
               v-if="isFilteringForms && enrichedForms.length === 0 && search"
-              class="mt-2 w-full text-center"
+              class="w-full mt-2 text-center"
             >
               Your search "{{ search }}" did not match any forms. Please try
               again.
@@ -92,7 +92,7 @@
               :to="{ name: 'forms-create' }"
             >
               <svg
-                class="w-4 h-4 text-white inline mr-1 -mt-1"
+                class="inline w-4 h-4 mr-1 -mt-1 text-white"
                 viewBox="0 0 14 14"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -116,10 +116,10 @@
               <div
                 v-for="(form) in enrichedForms"
                 :key="form.id"
-                class="mt-4 p-4 flex group bg-white hover:bg-gray-50 dark:bg-notion-dark items-center relative"
+                class="relative flex items-center p-4 mt-4 bg-white group hover:bg-gray-50 dark:bg-notion-dark"
               >
                 <div
-                  class="flex-grow items-center truncate cursor-pointer relative"
+                  class="relative items-center flex-grow truncate cursor-pointer"
                 >
                   <NuxtLink
                     :to="{name:'forms-slug-show-submissions', params: {slug:form.slug}}"
@@ -128,22 +128,22 @@
                   <span class="font-semibold text-gray-900 dark:text-white">{{
                     form.title
                   }}</span>
-                  <ul class="flex text-gray-500 text-sm gap-4">
+                  <ul class="flex gap-4 text-sm text-gray-500">
                     <li class="pr-1 mr-3">
                       {{ form.views_count }} view{{
                         form.views_count > 0 ? "s" : ""
                       }}
                     </li>
-                    <li class="list-disc mr-3">
+                    <li class="mr-3 list-disc">
                       {{ form.submissions_count }}
                       submission{{ form.submissions_count > 0 ? "s" : "" }}
                     </li>
-                    <li class="list-disc mr-3">
+                    <li class="mr-3 list-disc">
                       Edited {{ form.last_edited_human }}
                     </li>
                     <li
                       v-if="form.creator"
-                      class="list-disc hidden lg:list-item"
+                      class="hidden list-disc lg:list-item"
                     >
                       By
                       {{ form?.creator?.name }}
@@ -151,24 +151,24 @@
                   </ul>
                   <div
                     v-if="['draft','closed'].includes(form.visibility) || (form.tags && form.tags.length > 0)"
-                    class="mt-1 flex items-center flex-wrap gap-3"
+                    class="flex flex-wrap items-center gap-3 mt-1"
                   >
                     <span
                       v-if="form.visibility=='draft'"
-                      class="inline-flex items-center rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-600 ring-1 ring-inset ring-gray-500/10 dark:text-white dark:bg-gray-700"
+                      class="inline-flex items-center px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-100 rounded-full ring-1 ring-inset ring-gray-500/10 dark:text-white dark:bg-gray-700"
                     >
                       Draft
                     </span>
                     <span
                       v-else-if="form.visibility=='closed'"
-                      class="inline-flex items-center rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-600 ring-1 ring-inset ring-gray-500/10 dark:text-white dark:bg-gray-700"
+                      class="inline-flex items-center px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-100 rounded-full ring-1 ring-inset ring-gray-500/10 dark:text-white dark:bg-gray-700"
                     >
                       Closed
                     </span>
                     <span
                       v-for="(tag) in form.tags"
                       :key="tag"
-                      class="inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 dark:text-white dark:bg-gray-700"
+                      class="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-600 rounded-full bg-gray-50 ring-1 ring-inset ring-gray-500/10 dark:text-white dark:bg-gray-700"
                     >
                       {{ tag }}
                     </span>
@@ -185,7 +185,7 @@
               class="px-4"
             >
               <UAlert
-                class="mt-8 p-4"
+                class="p-4 mt-8"
                 icon="i-heroicons-sparkles"
                 color="primary"
                 variant="subtle"
@@ -197,7 +197,7 @@
                   </h3>
                 </template>
                 <template #description>
-                  <div class="flex flex-wrap sm:flex-nowrap gap-4 items-start">
+                  <div class="flex flex-wrap items-start gap-4 sm:flex-nowrap">
                     <p class="flex-grow">
                       Remove NoteForms branding, customize forms further, use your custom domain, integrate with your
                       favorite tools, invite users, and more!
@@ -219,7 +219,7 @@
             v-if="formsLoading"
             class="text-center"
           >
-            <Loader class="h-6 w-6 text-nt-blue mx-auto" />
+            <Loader class="w-6 h-6 mx-auto text-nt-blue" />
           </div>
         </div>
       </div>
@@ -243,7 +243,7 @@ definePageMeta({
 useOpnSeoMeta({
   title: "Your Forms",
   description:
-    "All of your OpnForm are here. Create new forms, or update your existing forms.",
+    "All of your vsForms are here. Create new forms, or update your existing forms.",
 })
 
 const subscriptionModalStore = useSubscriptionModalStore()

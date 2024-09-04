@@ -155,10 +155,10 @@
     >
       <template #label>
         <span class="text-sm">
-          Remove OpnForm Branding
+          Remove vsForms Branding
         </span>
         <pro-tag
-          upgrade-modal-title="Upgrade today to remove OpnForm branding"
+          upgrade-modal-title="Upgrade today to remove vsForms branding"
           class="-mt-1"
         />
       </template>
@@ -235,12 +235,12 @@ const onChangeConfettiOnSubmission = (val) => {
 
 const onChangeNoBranding = (val) => {
   if (!isPro.value && val) {
-    subscriptionModalStore.setModalContent("Upgrade today to remove OpnForm branding")
+    subscriptionModalStore.setModalContent("Upgrade today to remove vsForms branding")
     subscriptionModalStore.openModal()
     setTimeout(() => {
       form.value.no_branding = false
     }, 300)
-  } 
+  }
 }
 
 const onApplyFont = (val) => {

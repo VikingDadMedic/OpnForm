@@ -212,7 +212,7 @@
             <h4
               class="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl"
             >
-              How OpnForm works
+              How vsForms works
             </h4>
           </div>
 

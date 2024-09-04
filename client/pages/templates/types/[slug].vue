@@ -105,10 +105,10 @@ useHead({
       !type.value.meta_title.toLowerCase().includes("opnform")
     ) {
       return titleChunk
-        ? `${titleChunk} - OpnForm`
-        : "Form Templates - OpnForm"
+        ? `${titleChunk} - vsForms`
+        : "Form Templates - vsForms"
     }
-    return titleChunk ? titleChunk : "Form Templates - OpnForm"
+    return titleChunk ? titleChunk : "Form Templates - vsForms"
   },
 })
 </script>

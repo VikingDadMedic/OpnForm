@@ -16,7 +16,7 @@
             alt="notion tools logo"
             class="w-10 h-10"
           >
-          <span class="ml-2 text-xl text-black dark:text-white"> OpnForm </span>
+          <span class="ml-2 text-xl text-black dark:text-white"> vsForms </span>
         </router-link>
       </div>
       <div class="flex justify-center mt-5 md:mt-0">

@@ -3,15 +3,15 @@ services:
   api: &api
     image: jhumanj/opnform-api:latest
     environment: &api-environment  # Add this anchor
-      DB_HOST: db
+      DB_HOST: ${DB_HOST:-forge}
       REDIS_HOST: redis
       DB_DATABASE: ${DB_DATABASE:-forge}
       DB_USERNAME: ${DB_USERNAME:-forge}
       DB_PASSWORD: ${DB_PASSWORD:-forge}
       DB_CONNECTION: ${DB_CONNECTION:-pgsql}
-      FILESYSTEM_DISK: local
+      FILESYSTEM_DISK: s3
       LOCAL_FILESYSTEM_VISIBILITY: public
-    env_file: 
+    env_file:
     - ./api/.env
     volumes:
     - opnform_storage:/usr/share/nginx/html/storage:rw
@@ -22,27 +22,15 @@ services:
     environment:
       <<: *api-environment
       IS_API_WORKER: "true"
-    env_file: 
+    env_file:
     - ./api/.env
     volumes:
     - opnform_storage:/usr/share/nginx/html/storage:rw
 
   ui:
     image: jhumanj/opnform-client:latest
-    env_file: 
+    env_file:
     - ./client/.env
-
-  redis:
-    image: redis:7
-
-  db:
-    image: postgres:16
-    environment:
-      POSTGRES_DB: ${DB_DATABASE:-forge}
-      POSTGRES_USER: ${DB_USERNAME:-forge}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-forge}
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
 
   ingress:
     image: nginx:1

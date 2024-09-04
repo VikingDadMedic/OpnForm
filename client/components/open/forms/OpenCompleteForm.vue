@@ -9,7 +9,7 @@
       rel="stylesheet"
       :href="getFontUrl"
     >
-    
+
     <h1
       v-if="!isHideTitle"
       class="mb-4 px-2"
@@ -146,7 +146,7 @@
             class="text-gray-400 hover:text-gray-500 dark:text-gray-600 dark:hover:text-gray-500 cursor-pointer hover:underline text-xs"
             target="_blank"
           >
-            Powered by <span class="font-semibold">OpnForm</span>
+            Powered by <span class="font-semibold">Voyager Social</span>
           </a>
         </p>
       </div>
@@ -186,10 +186,10 @@
         >
           <a
             target="_parent"
-            href="https://opnform.com/?utm_source=form&utm_content=create_form_free"
+            href="https://www.voyagersocial.ai"
             class="text-nt-blue hover:underline"
           >
-            Create your form for free with OpnForm
+            Start with a free trial with Voyager Social AI...
           </a>
         </p>
       </div>

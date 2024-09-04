@@ -17,7 +17,7 @@
             >
             <span
               class="ml-2 text-md hidden sm:inline text-black dark:text-white"
-            >OpnForm</span>
+            >vsForms</span>
           </NuxtLink>
           <workspace-dropdown class="ml-6" />
         </div>

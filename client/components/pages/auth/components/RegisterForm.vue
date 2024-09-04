@@ -241,7 +241,7 @@ export default {
       if (data.appsumo_license === false) {
         useAlert().error(
           "Invalid AppSumo license. This probably happened because this license was already" +
-          " attached to another OpnForm account. Please contact support.",
+          " attached to another vsForms account. Please contact support.",
         )
       } else if (data.appsumo_license === true) {
         useAlert().success(

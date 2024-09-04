@@ -1,9 +1,9 @@
 <template>
   <modal :show="showModal" @close="logout" max-width="lg">
     <div class="">
-      <h2 class="font-medium text-3xl mb-3">Welcome to OpnForm!</h2>
+      <h2 class="font-medium text-3xl mb-3">Welcome to vsForms!</h2>
       <p class="text-sm text-gray-600">
-        You're using the self-hosted version of OpnForm and need to set up your account.
+        You're using the self-hosted version of vsForms and need to set up your account.
         Please enter your email and create a password to continue.
       </p>
     </div>

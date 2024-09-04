@@ -1,25 +1,25 @@
 <template>
   <div>
     <section
-      class="bg-gradient-to-b relative from-white to-gray-100 py-8 sm:py-16"
+      class="relative py-8 bg-gradient-to-b from-white to-gray-100 sm:py-16"
     >
       <div class="absolute inset-0">
         <img
-          class="w-full h-full object-cover object-top"
+          class="object-cover object-top w-full h-full"
           src="/img/pages/ai_form_builder/background-pattern.svg"
           alt="Page abstract background"
         >
       </div>
 
       <div
-        class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative -mb-32 md:-mb-52 lg:-mb-72"
+        class="relative px-4 mx-auto -mb-32 sm:px-6 lg:px-8 max-w-7xl md:-mb-52 lg:-mb-72"
       >
         <div class="flex justify-center mb-5">
           <div
-            class="relative flex items-center shadow-sm bg-white gap-x-4 rounded-full px-4 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+            class="relative flex items-center px-4 py-1 text-sm leading-6 text-gray-600 bg-white rounded-full shadow-sm gap-x-4 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
           >
             <span class="font-semibold text-gray-500">We're Open-Source</span><span
-              class="h-4 w-px bg-gray-900/10"
+              class="w-px h-4 bg-gray-900/10"
               aria-hidden="true"
             />
             <a
@@ -40,7 +40,7 @@
                 stroke-width="1.5"
                 stroke="currentColor"
                 aria-hidden="true"
-                class="-mr-2 h-5 w-5 text-gray-400"
+                class="w-5 h-5 -mr-2 text-gray-400"
               >
                 <path
                   stroke-linecap="round"
@@ -53,24 +53,24 @@
         </div>
         <div class="max-w-4xl mx-auto text-center">
           <h1
-            class="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight"
+            class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
           >
             Build
             <span
-              class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400"
+              class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400"
             >beautiful forms</span>
             <br>
             in seconds
           </h1>
           <p
-            class="mt-4 sm:mt-5 text-base leading-7 sm:text-xl sm:leading-9 font-medium text-gray-500"
+            class="mt-4 text-base font-medium leading-7 text-gray-500 sm:mt-5 sm:text-xl sm:leading-9"
           >
             Create beautiful forms and share them anywhere. It super fast, you
             don't need to know how to code. Get started
             <span class="font-semibold">for free</span>!
           </p>
 
-          <div class="mt-8 flex justify-center">
+          <div class="flex justify-center mt-8">
             <v-button
               v-if="!authenticated"
               class="mr-1"
@@ -89,8 +89,8 @@
             </v-button>
           </div>
 
-          <div class="justify-center flex gap-2 mt-10">
-            <div class="flex items-center text-gray-400 text-sm">
+          <div class="flex justify-center gap-2 mt-10">
+            <div class="flex items-center text-sm text-gray-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -107,7 +107,7 @@
               </svg>
               <span>Unlimited forms</span>
             </div>
-            <div class="flex items-center text-gray-400 text-sm">
+            <div class="flex items-center text-sm text-gray-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -124,7 +124,7 @@
               </svg>
               <span> Unlimited fields </span>
             </div>
-            <div class="flex text-gray-400 text-sm">
+            <div class="flex text-sm text-gray-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -145,17 +145,17 @@
         </div>
 
         <div
-          class="w-full mt-12 relative px-6 mx-auto max-w-4xl sm:px-10 lg:px-0 z-10 flex items-center justify-center"
+          class="relative z-10 flex items-center justify-center w-full max-w-4xl px-6 mx-auto mt-12 sm:px-10 lg:px-0"
         >
           <div
-            class="-m-2 rounded-xl bg-blue-900/5 p-2 backdrop-blur-sm ring-1 ring-inset ring-blue-900/10 lg:-m-4 lg:rounded-2xl lg:p-4 w-full"
+            class="w-full p-2 -m-2 rounded-xl bg-blue-900/5 backdrop-blur-sm ring-1 ring-inset ring-blue-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
           >
             <img
               src="/img/pages/welcome/product-cover.jpg"
               sizes="320px sm:650px lg:896px"
               alt="Product screenshot"
               loading="lazy"
-              class="rounded-md w-full shadow-2xl ring-1 ring-gray-900/10"
+              class="w-full rounded-md shadow-2xl ring-1 ring-gray-900/10"
             >
           </div>
         </div>
@@ -164,14 +164,14 @@
 
     <div class="flex flex-col bg-gray-50 dark:bg-notion-dark">
       <div
-        class="bg-white dark:bg-notion-dark-light pt-32 md:pt-52 lg:pt-72 pb-8"
+        class="pt-32 pb-8 bg-white dark:bg-notion-dark-light md:pt-52 lg:pt-72"
       >
-        <div class="md:max-w-5xl md:mx-auto w-full">
+        <div class="w-full md:max-w-5xl md:mx-auto">
           <features class="pb-8" />
         </div>
       </div>
 
-      <ai-feature class="bg-white -mb-56" />
+      <ai-feature class="-mb-56 bg-white" />
 
       <more-features class="pt-56" />
 
@@ -194,7 +194,7 @@
       </pricing-table>
 
       <!--      <div class="pt-20 pb-5 text-center bg-white dark:bg-notion-dark-light">-->
-      <!--        <h3 class="font-semibold text-3xl">See what people are saying</h3>-->
+      <!--        <h3 class="text-3xl font-semibold">See what people are saying</h3>-->
       <!--        <p class="w-full mt-2 mb-8">-->
       <!--          These are the stories of our customers who have joined us with great pleasure when using this crazy feature.-->
       <!--        </p>-->
@@ -203,14 +203,14 @@
 
       <templates-slider class="max-w-full mb-12" />
 
-      <div class="w-full bg-blue-900 p-12 md:p-24 text-center">
-        <h4 class="font-semibold text-3xl text-white">
+      <div class="w-full p-12 text-center bg-blue-900 md:p-24">
+        <h4 class="text-3xl font-semibold text-white">
           Take your forms to the next level
         </h4>
-        <p class="text-gray-300 my-8">
+        <p class="my-8 text-gray-300">
           Generous, unlimited free plan.
         </p>
-        <div class="mt-6 flex justify-center">
+        <div class="flex justify-center mt-6">
           <v-button
             v-track.welcome_create_form_click
             :to="{ name: 'forms-create-guest' }"
@@ -278,11 +278,11 @@
           </a>
         </div>
 
-        <p class="mt-12 text-white text-lg">
-          The form below is an OpnForm, give it a try !
+        <p class="mt-12 text-lg text-white">
+          The form below is an vsForms, give it a try !
         </p>
         <div
-          class="md:max-w-5xl md:mx-auto w-full bg-white rounded-md mt-6 p-4 shadow-lg"
+          class="w-full p-4 mt-6 bg-white rounded-md shadow-lg md:max-w-5xl md:mx-auto"
         >
           <iframe
             class="mt-4"
@@ -293,7 +293,7 @@
         </div>
       </div>
 
-      <open-form-footer class="dark:border-t border-t" />
+      <open-form-footer class="border-t dark:border-t" />
     </div>
   </div>
 </template>

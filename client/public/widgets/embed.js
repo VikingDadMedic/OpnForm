@@ -5,13 +5,13 @@
 !(function () {
   !(function (e) {
     if (e && typeof document !== "undefined") {
-      const head = document.head || document.getElementsByTagName("head")[0]
+      const head = document.head || document.getElementsByTagName("head")[0];
       const styleEl = document.createElement("style");
       (styleEl.type = "text/css"),
         head.appendChild(styleEl),
         styleEl.styleSheet
           ? (styleEl.styleSheet.cssText = e)
-          : styleEl.appendChild(document.createTextNode(e))
+          : styleEl.appendChild(document.createTextNode(e));
     }
   })(`.nf-main {
       position: fixed;
@@ -92,57 +92,57 @@
     }
     .nf-main.nf-left .nf-popup {
       align-items: start !important;
-    }`)
+    }`);
 })();
 
 (function () {
-  const nfData = JSON.parse(document.currentScript.getAttribute("data-nf"))
-  let formUrl = nfData?.formurl || null
+  const nfData = JSON.parse(document.currentScript.getAttribute("data-nf"));
+  let formUrl = nfData?.formurl || null;
   if (
     window.location !== window.parent.location ||
     window.frameElement ||
     !formUrl
   ) {
     // Do nothing
-    return false
+    return false;
   }
 
   // Add popup param to formUrl
-  formUrl = formUrl + (formUrl.indexOf("?") === -1 ? "?" : "&") + "popup=true"
+  formUrl = formUrl + (formUrl.indexOf("?") === -1 ? "?" : "&") + "popup=true";
 
   // Settings
-  const emoji = nfData?.emoji || "💬"
-  const position = nfData?.position === "left" ? "nf-left" : ""
-  const emojiBgColor = nfData?.bgcolor || "#3B82F6"
-  const width = nfData?.width || 500
+  const emoji = nfData?.emoji || "💬";
+  const position = nfData?.position === "left" ? "nf-left" : "";
+  const emojiBgColor = nfData?.bgcolor || "#3B82F6";
+  const width = nfData?.width || 500;
 
   // Remove old popup, if there
-  const oldEl = document.body.querySelector(".nf-main")
+  const oldEl = document.body.querySelector(".nf-main");
   if (oldEl) {
-    oldEl.remove()
+    oldEl.remove();
   }
 
   // Iframe popup
-  const mainDiv = document.createElement("div")
-  mainDiv.className = `nf-main ${position}`
-  mainDiv.innerHTML = `<div class='nf-popup'><iframe src='${formUrl}' frameborder='0' marginheight='0' marginwidth='0' title='OpnForm'></iframe></div>`
-  const iframe = mainDiv.querySelector("iframe")
-  iframe.style.maxWidth = `${width}px`
+  const mainDiv = document.createElement("div");
+  mainDiv.className = `nf-main ${position}`;
+  mainDiv.innerHTML = `<div class='nf-popup'><iframe src='${formUrl}' frameborder='0' marginheight='0' marginwidth='0' title='vsForms'></iframe></div>`;
+  const iframe = mainDiv.querySelector("iframe");
+  iframe.style.maxWidth = `${width}px`;
 
   // Emoji button
-  const emojiButton = document.createElement("div")
-  emojiButton.className = "nf-emoji"
-  emojiButton.role = "button"
-  emojiButton.style.backgroundColor = `${emojiBgColor}`
+  const emojiButton = document.createElement("div");
+  emojiButton.className = "nf-emoji";
+  emojiButton.role = "button";
+  emojiButton.style.backgroundColor = `${emojiBgColor}`;
   emojiButton.innerHTML = `<span class='nf-emoji-icon'>${emoji}</span><span class='nf-emoji-icon-close'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-8 h-8'>
   <path stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12' />
 </svg>
-</span>`
+</span>`;
   emojiButton.onclick = () => {
-    mainDiv.classList.toggle("open")
-  }
-  mainDiv.appendChild(emojiButton)
+    mainDiv.classList.toggle("open");
+  };
+  mainDiv.appendChild(emojiButton);
 
   // Append to the body
-  document.body.appendChild(mainDiv)
-})()
+  document.body.appendChild(mainDiv);
+})();

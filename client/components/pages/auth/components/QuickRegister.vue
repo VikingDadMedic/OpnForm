@@ -23,7 +23,7 @@
         </svg>
       </template>
       <template #title>
-        Login to OpnForm
+        Login to vsForms
       </template>
       <div class="px-4">
         <login-form
