@@ -1,6 +1,6 @@
 ---
 title: "Docker"
-description: "OpnForm can be easily set up using Docker. We provide pre-built images on Docker Hub, which is the recommended method for most users."
+description: "vsForms can be easily set up using Docker. We provide pre-built images on Docker Hub, which is the recommended method for most users."
 ---
 
 import CloudVersion from "/snippets/cloud-version.mdx";
@@ -17,8 +17,8 @@ import CloudVersion from "/snippets/cloud-version.mdx";
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/JhumanJ/OpnForm.git
-   cd OpnForm
+   git clone https://github.com/JhumanJ/vsForms.git
+   cd vsForms
    ```
 
 2. Set up environment files:
@@ -28,8 +28,8 @@ import CloudVersion from "/snippets/cloud-version.mdx";
    ```
 
 3. (Optional) Customize the environment variables:
-   
-   You can modify two environment files to customize your OpnForm installation:
+
+   You can modify two environment files to customize your vsForms installation:
    - The `.env` file in the `api` directory for backend configuration
    - The `.env` file in the `client` directory for frontend configuration
 
@@ -41,7 +41,7 @@ import CloudVersion from "/snippets/cloud-version.mdx";
    docker-compose up -d
    ```
 
-5. Access OpnForm at http://localhost
+5. Access vsForms at http://localhost
 
 
 ### Initial Login
@@ -57,12 +57,12 @@ You will be prompted to change your email and password after your first login.
 
 ## Docker Images
 
-OpnForm provides pre-built Docker images for easy deployment. You can find our official Docker images on Docker Hub:
+vsForms provides pre-built Docker images for easy deployment. You can find our official Docker images on Docker Hub:
 
-- [OpnForm API Image](https://hub.docker.com/r/jhumanj/opnform-api)
-- [OpnForm Client Image](https://hub.docker.com/r/jhumanj/opnform-client)
+- [vsForms API Image](https://hub.docker.com/r/jhumanj/opnform-api)
+- [vsForms Client Image](https://hub.docker.com/r/jhumanj/opnform-client)
 
-We recommend using these official images for your OpnForm deployment.
+We recommend using these official images for your vsForms deployment.
 
 
 ## Building Your Own Docker Images

@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "OpnForm Technical Docs",
+  "name": "vsForms Technical Docs",
   "logo": {
     "light": "/logo.svg",
     "dark": "/logo.svg"
@@ -17,12 +17,12 @@
   },
   "topbarLinks": [
     {
-      "name": "OpnForm",
+      "name": "vsForms",
       "url": "https://opnform.com?utm_source=docs&utm_medium=topbar&utm_campaign=technical_docs"
     },
     {
       "name": "GitHub",
-      "url": "https://github.com/JhumanJ/OpnForm"
+      "url": "https://github.com/JhumanJ/vsForms"
     }
   ],
   "topbarCtaButton": {
@@ -113,7 +113,7 @@
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/opnform",
-    "github": "https://github.com/JhumanJ/OpnForm"
+    "github": "https://github.com/JhumanJ/vsForms"
   },
   "openapi": "/api-reference/openapi.json",
   "feedback": {

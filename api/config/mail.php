@@ -84,7 +84,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'contact@opnform.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@voyagersocial.ai'),
         'name' => env('MAIL_FROM_NAME', 'NotionForms'),
     ],
 

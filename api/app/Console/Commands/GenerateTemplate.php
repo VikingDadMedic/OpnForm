@@ -27,7 +27,7 @@ class GenerateTemplate extends Command
     public const MAX_RELATED_TEMPLATES = 8;
 
     public const FORM_STRUCTURE_PROMPT = <<<'EOD'
-        You are an AI assistant for OpnForm, a form builder and your job is to build a form for our user.
+        You are an AI assistant for vsForms, a form builder and your job is to build a form for our user.
 
         Forms are represented as Json objects. Here's an example form:
         ```json
@@ -153,24 +153,24 @@ class GenerateTemplate extends Command
     EOD;
 
     public const FORM_DESCRIPTION_PROMPT = <<<'EOD'
-        You are an AI assistant for OpnForm, a form builder and your job is to help us build form templates for our users.
+        You are an AI assistant for vsForms, a form builder and your job is to help us build form templates for our users.
         Give me some valid html code (using only h2, p, ul, li html tags) for the following form template page: "[REPLACE]".
 
         The html code should have the following structure:
         - A paragraph explaining what the template is about
         - A paragraph explaining why and when to use such a form
         - A paragraph explaining who is the target audience and why it's a great idea to build this form
-        - A paragraph explaining that OpnForm is the best tool to build this form. They can duplicate this template in a few seconds, and integrate with many other tools through our webhook or zapier integration.
+        - A paragraph explaining that vsForms is the best tool to build this form. They can duplicate this template in a few seconds, and integrate with many other tools through our webhook or zapier integration.
         Each paragraph (except for the first one) MUST start with with a h2 tag containing a title for this paragraph.
     EOD;
 
     public const FORM_SHORT_DESCRIPTION_PROMPT = <<<'EOD'
-        I own a form builder online named OpnForm. It's free to use.
+        I own a form builder online named vsForms. It's free to use.
         Give me a 1 sentence description for the following form template page: "[REPLACE]". It should be short and concise, but still explain what the form is about.
     EOD;
 
     public const FORM_INDUSTRY_PROMPT = <<<'EOD'
-        You are an AI assistant for OpnForm, a form builder and your job is to help us build form templates for our users.
+        You are an AI assistant for vsForms, a form builder and your job is to help us build form templates for our users.
         I am creating a form template: "[REPLACE]". You must assign the template to industries. Return a list of industries (minimum 1, maximum 3 but only if very relevant) and order them by relevance (most relevant first).
 
         Here are the only industries you can choose from: [INDUSTRIES]
@@ -181,7 +181,7 @@ class GenerateTemplate extends Command
     EOD;
 
     public const FORM_TYPES_PROMPT = <<<'EOD'
-        You are an AI assistant for OpnForm, a form builder and your job is to help us build form templates for our users.
+        You are an AI assistant for vsForms, a form builder and your job is to help us build form templates for our users.
         I am creating a form template: "[REPLACE]". You must assign the template to one or more types. Return a list of types (minimum 1, maximum 3 but only if very accurate) and order them by relevance (most relevant first).
 
         Here are the only types you can choose from: [TYPES]
@@ -193,7 +193,7 @@ class GenerateTemplate extends Command
 
     public const FORM_QAS_PROMPT = <<<'EOD'
         Now give me 4 to 6 question and answers to put on the form template page. The questions should be about the reasons for this template (when to use, why, target audience, goal etc.).
-        The questions should also explain why OpnForm is the best option to create this form (open-source, free to use, integrations etc).
+        The questions should also explain why vsForms is the best option to create this form (open-source, free to use, integrations etc).
         Reply only with a valid JSON, being an array of object containing the keys "question" and "answer".
     EOD;
 

@@ -26,6 +26,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        // Apply the 'guest' middleware to ensure only unauthenticated users can access the registration functionality
         $this->middleware('guest');
     }
 
@@ -37,10 +38,12 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, User $user)
     {
+        // If the user must verify their email, return a JSON response indicating that the verification email has been sent
         if ($user instanceof MustVerifyEmail) {
             return response()->json(['status' => trans('verification.sent')]);
         }
 
+        // Otherwise, return a JSON response with the user data and the AppSumo license status
         return response()->json(array_merge(
             (new UserResource($user))->toArray($request),
             [
@@ -56,6 +59,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // Define validation rules for the registration data
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email:filter|max:255|unique:users|indisposable',
@@ -74,9 +78,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $this->checkRegistrationAllowed($data);
+        // Get the workspace and role for the new user
         [$workspace, $role] = $this->getWorkspaceAndRole($data);
 
+        // Create a new user with the provided data
         $user = User::create([
             'name' => $data['name'],
             'email' => strtolower($data['email']),
@@ -84,27 +89,22 @@ class RegisterController extends Controller
             'hear_about_us' => $data['hear_about_us'],
         ]);
 
-        // Add relation with user
+        // Associate the user with the workspace and role
         $user->workspaces()->sync([
             $workspace->id => [
                 'role' => $role,
             ],
         ], false);
 
+        // Register the user with an AppSumo license if provided
         $this->appsumoLicense = AppSumoAuthController::registerWithLicense($user, $data['appsumo_license'] ?? null);
 
         return $user;
     }
 
-    private function checkRegistrationAllowed(array $data)
-    {
-        if (config('app.self_hosted') && !array_key_exists('invite_token', $data) && (app()->environment() !== 'testing')) {
-            response()->json(['message' => 'Registration is not allowed in self host mode'], 400)->throwResponse();
-        }
-    }
-
     private function getWorkspaceAndRole(array $data)
     {
+        // If no invite token is provided, create a new workspace and assign the user as an admin
         if (!array_key_exists('invite_token', $data)) {
             return [
                 Workspace::create([
@@ -115,10 +115,12 @@ class RegisterController extends Controller
             ];
         }
 
+        // Find the user invite based on the provided email and invite token
         $userInvite = UserInvite::where('email', $data['email'])
             ->where('token', $data['invite_token'])
             ->first();
 
+        // If the invite token is invalid, expired, or already accepted, return an error response
         if (!$userInvite) {
             response()->json(['message' => 'Invite token is invalid.'], 400)->throwResponse();
         }
@@ -130,6 +132,7 @@ class RegisterController extends Controller
             response()->json(['message' => 'Invite is already accepted.'], 400)->throwResponse();
         }
 
+        // Mark the invite as accepted and return the associated workspace and role
         $userInvite->markAsAccepted();
         return [
             $userInvite->workspace,

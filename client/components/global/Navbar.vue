@@ -1,4 +1,5 @@
 <template>
+  <!-- Navbar component template -->
   <nav
     v-if="hasNavbar"
     class="bg-white dark:bg-notion-dark border-b"
@@ -6,25 +7,31 @@
     <div class="max-w-7xl mx-auto px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
+          <!-- Link to home or index page based on user authentication -->
           <NuxtLink
             :to="{ name: user ? 'home' : 'index' }"
             class="flex-shrink-0 font-semibold hover:no-underline flex items-center"
           >
+            <!-- Logo image -->
             <img
               src="/img/logo.svg"
               alt="notion tools logo"
               class="w-8 h-8"
             >
+            <!-- Application name -->
             <span
               class="ml-2 text-md hidden sm:inline text-black dark:text-white"
-            >OpnForm</span>
+            >vsForms</span>
           </NuxtLink>
+          <!-- Workspace dropdown component -->
           <workspace-dropdown class="ml-6" />
         </div>
+        <!-- Authentication related links and buttons -->
         <div
           v-if="showAuth"
           class="hidden md:flex gap-x-2 ml-auto"
         >
+          <!-- Link to templates page if not already on it -->
           <NuxtLink
             v-if="$route.name !== 'templates'"
             :to="{ name: 'templates' }"
@@ -32,7 +39,9 @@
           >
             Templates
           </NuxtLink>
+          <!-- Feature base enabled section -->
           <template v-if="appStore.featureBaseEnabled">
+            <!-- Button to open changelog if user is authenticated -->
             <button
               v-if="user"
               :class="navLinkClasses"
@@ -44,6 +53,7 @@
                 class="bg-blue-500 rounded-full px-2 ml-1 text-white"
               />
             </button>
+            <!-- Link to changelog if user is not authenticated -->
             <a
               v-else
               :href="opnformConfig.links.changelog_url"
@@ -53,6 +63,7 @@
               What's new?
             </a>
           </template>
+          <!-- Link to AI Form Builder if conditions are met -->
           <NuxtLink
             v-if="($route.name !== 'ai-form-builder' && user === null) && (!useFeatureFlag('self_hosted') || useFeatureFlag('ai_features'))"
             :to="{ name: 'ai-form-builder' }"
@@ -61,6 +72,7 @@
           >
             AI Form Builder
           </NuxtLink>
+          <!-- Link to pricing page if conditions are met -->
           <NuxtLink
             v-if="
               (useFeatureFlag('billing.enabled') &&
@@ -76,7 +88,7 @@
             >Upgrade</span>
             <span v-else>Pricing</span>
           </NuxtLink>
-
+          <!-- Help link -->
           <NuxtLink
             :href="helpUrl"
             :class="navLinkClasses"
@@ -85,10 +97,12 @@
             Help
           </NuxtLink>
         </div>
+        <!-- Divider line -->
         <div
           v-if="showAuth"
           class="hidden md:block pl-5 border-gray-300 border-r h-5"
         />
+        <!-- User authentication section -->
         <div
           v-if="showAuth"
           class="block"
@@ -96,6 +110,7 @@
           <div class="flex items-center">
             <div class="ml-4 relative">
               <div class="relative inline-block text-left">
+                <!-- Dropdown menu for authenticated user -->
                 <dropdown
                   v-if="user"
                   dusk="nav-dropdown"
@@ -109,21 +124,24 @@
                       dusk="nav-dropdown-button"
                       @click.stop="toggle()"
                     >
+                      <!-- User profile picture -->
                       <img
                         :src="user.photo_url"
                         class="rounded-full w-6 h-6"
                       >
+                      <!-- User name -->
                       <p class="ml-2 hidden sm:inline">
                         {{ user.name }}
                       </p>
                     </button>
                   </template>
-
+                  <!-- Links in the dropdown menu -->
                   <NuxtLink
                     v-if="userOnboarded"
                     :to="{ name: 'home' }"
                     class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:no-underline transition-colors hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 flex items-center"
                   >
+                    <!-- My Forms link with icon -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="w-4 h-4 mr-2"
@@ -140,12 +158,12 @@
                     </svg>
                     My Forms
                   </NuxtLink>
-
                   <NuxtLink
                     v-if="userOnboarded"
                     :to="{ name: 'templates-my-templates' }"
                     class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:no-underline transition-colors hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 flex items-center"
                   >
+                    <!-- My Templates link with icon -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="w-4 h-4 mr-2"
@@ -162,11 +180,11 @@
                     </svg>
                     My Templates
                   </NuxtLink>
-
                   <NuxtLink
                     :to="{ name: 'settings-profile' }"
                     class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:no-underline transition-colors hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 flex items-center"
                   >
+                    <!-- Settings link with icon -->
                     <svg
                       class="w-4 h-4 mr-2"
                       xmlns="http://www.w3.org/2000/svg"
@@ -189,12 +207,12 @@
                     </svg>
                     Settings
                   </NuxtLink>
-
                   <NuxtLink
                     v-if="user.moderator"
                     :to="{ name: 'settings-admin' }"
                     class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:no-underline transition-colors hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 flex items-center"
                   >
+                    <!-- Admin link with icon -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -211,7 +229,7 @@
                     </svg>
                     Admin
                   </NuxtLink>
-
+                  <!-- Logout link with icon -->
                   <a
                     href="#"
                     class="block px-4 py-2 text-md text-gray-700 hover:no-underline transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 flex items-center"
@@ -234,10 +252,12 @@
                     Logout
                   </a>
                 </dropdown>
+                <!-- Links for unauthenticated users -->
                 <div
                   v-else
                   class="flex gap-2"
                 >
+                  <!-- Login link -->
                   <NuxtLink
                     v-if="$route.name !== 'login'"
                     :to="{ name: 'login' }"
@@ -246,7 +266,7 @@
                   >
                     Login
                   </NuxtLink>
-
+                  <!-- Create a form button -->
                   <v-button
                     v-if="!isSelfHosted"
                     v-track.nav_create_form_click

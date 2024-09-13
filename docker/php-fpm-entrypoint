@@ -8,7 +8,7 @@ main() {
         # This is the API service, run full setup
         prep_file_permissions
         prep_storage
-        wait_for_db
+        # wait_for_db
         apply_db_migrations
         run_init_project
         run_server "$@"

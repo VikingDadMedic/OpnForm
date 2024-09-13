@@ -1,48 +1,42 @@
----
 services:
   api: &api
-    image: jhumanj/opnform-api:latest
-    environment: &api-environment  # Add this anchor
-      DB_HOST: db
-      REDIS_HOST: redis
-      DB_DATABASE: ${DB_DATABASE:-forge}
-      DB_USERNAME: ${DB_USERNAME:-forge}
-      DB_PASSWORD: ${DB_PASSWORD:-forge}
-      DB_CONNECTION: ${DB_CONNECTION:-pgsql}
-      FILESYSTEM_DISK: local
-      LOCAL_FILESYSTEM_VISIBILITY: public
-    env_file: 
-    - ./api/.env
+    image: vstro/vsforms-api:latest
+    environment: &api-environment
+      # Your environment variables
+    env_file:
+      - ./api/.env
     volumes:
-    - opnform_storage:/usr/share/nginx/html/storage:rw
+      - vsforms_storage:/usr/share/nginx/html/storage:rw
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=Host(`api.vsform.link`)"
+      - "traefik.http.services.api.loadbalancer.server.port=9000" # Port for PHP-FPM
+    networks:
+      - web
 
   api-worker:
-    image: jhumanj/opnform-api:latest
+    image: vstro/vsforms-api:latest
     command: php artisan queue:work
     environment:
       <<: *api-environment
       IS_API_WORKER: "true"
-    env_file: 
-    - ./api/.env
+    env_file:
+      - ./api/.env
     volumes:
-    - opnform_storage:/usr/share/nginx/html/storage:rw
+      - vsforms_storage:/usr/share/nginx/html/storage:rw
+    networks:
+      - web
 
   ui:
-    image: jhumanj/opnform-client:latest
-    env_file: 
-    - ./client/.env
-
-  redis:
-    image: redis:7
-
-  db:
-    image: postgres:16
+    image: vstro/vsforms-ui:latest
     environment:
-      POSTGRES_DB: ${DB_DATABASE:-forge}
-      POSTGRES_USER: ${DB_USERNAME:-forge}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-forge}
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
+      # Your NUXT environment variables
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ui.rule=Host(`vsform.link`)"
+      - "traefik.http.services.ui.loadbalancer.server.port=3000"
+    networks:
+      - web
 
   ingress:
     image: nginx:1
@@ -50,7 +44,100 @@ services:
       - ./docker/nginx.conf:/etc/nginx/templates/default.conf.template
     ports:
       - 80:80
+    networks:
+      - web
+    depends_on:
+      - api
+      - ui
+
+networks:
+  web:
+    external: true
 
 volumes:
-  postgres-data:
-  opnform_storage:
+  vsforms_storage:
+
+
+
+
+# ---
+# services:
+#   api: &api
+#     image: vstro/vsforms-api:latest
+#     environment: &api-environment  # Add this anchor
+#       DB_HOST: ${DB_HOST}
+#       DATABASE_URL: ${DATABASE_URL}
+#       DB_PORT: ${DB_PORT:-5432}
+#       DB_DATABASE: ${DB_DATABASE}
+#       DB_USERNAME: ${DB_USERNAME}
+#       DB_PASSWORD: ${DB_PASSWORD}
+#       DB_CONNECTION: ${DB_CONNECTION:-pgsql}
+#       REDIS_SCHEME: ${REDIS_SCHEME:-tls}
+#       REDIS_URL: ${REDIS_URL}
+#       REDIS_HOST: ${REDIS_HOST}
+#       REDIS_PASSWORD: ${REDIS_PASSWORD}
+#       REDIS_PORT: ${REDIS_PORT:-6379}
+#       # FILESYSTEM_DISK: local
+#       FILESYSTEM_DISK: s3
+#       DRIVE_DISK: s3
+#       LOCAL_FILESYSTEM_VISIBILITY: public
+#       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+#       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+#       AWS_REGION: ${AWS_REGION:-nyc3}
+#       AWS_BUCKET: ${AWS_BUCKET}
+#       AWS_ENDPOINT: ${AWS_ENDPOINT}
+#       AWS_URL: ${AWS_URL}
+#     env_file:
+#     - ./api/.env
+#     volumes:
+#     - vsforms_storage:/usr/share/nginx/html/storage:rw
+
+#   api-worker:
+#     image: vstro/vsforms-api:latest
+#     command: php artisan queue:work
+#     environment:
+#       <<: *api-environment
+#       IS_API_WORKER: "true"
+#     env_file:
+#     - ./api/.env
+#     volumes:
+#     - vsforms_storage:/usr/share/nginx/html/storage:rw
+
+#   ui:
+#     image: vstro/vsforms-ui:latest
+#     # env_file:
+#     # - ./client/.env
+#     environment:
+#       NUXT_PUBLIC_APP_URL: "/"
+#       NUXT_PUBLIC_API_BASE: "/api"
+#       NUXT_PRIVATE_API_BASE: "http://api"
+#       NUXT_PUBLIC_ENV: "dev"
+#       NUXT_API_SECRET: "3v9r2m9zd1V0TahnKs0tahm2ao0ffHfeg57aREMy"
+#       NUXT_PUBLIC_S3_ENABLED: true
+#       NUXT_PUBLIC_CUSTOM_DOMAINS_ENABLED: true
+#       NUXT_PUBLIC_AI_FEATURES_ENABLED: true
+#       NUXT_PUBLIC_ZAPIER_ENABLED: true
+
+
+#   # redis:
+#   #   image: redis:7
+
+#   # db:
+#   #   image: postgres:16
+#   #   environment:
+#   #     POSTGRES_DB: ${DB_DATABASE:-forge}
+#   #     POSTGRES_USER: ${DB_USERNAME:-forge}
+#   #     POSTGRES_PASSWORD: ${DB_PASSWORD:-forge}
+#   #   volumes:
+#   #     - postgres-data:/var/lib/postgresql/data
+
+#   ingress:
+#     image: nginx:1
+#     volumes:
+#       - ./docker/nginx.conf:/etc/nginx/templates/default.conf.template
+#     ports:
+#       - 80:80
+
+# volumes:
+#   # postgres-data:
+#   vsforms_storage:

@@ -1,5 +1,5 @@
 export default {
-  app_ame: "OpnForm",
+  app_ame: "vsForms",
   locale: "en",
   locales: { en: "EN" },
   githubAuth: null,
@@ -17,5 +17,8 @@ export default {
     changelog_url: "https://feedback.opnform.com/changelog",
     roadmap: "https://feedback.opnform.com/roadmap",
     tech_docs: "https://docs.opnform.com",
+    main: "https://www.voyagersocial.ai",
+    vwsm: "https://www.voyagerwebsites.com",
+    tro: "https://www.travelresearchonline.com",
   },
 }

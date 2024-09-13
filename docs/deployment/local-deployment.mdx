@@ -1,6 +1,6 @@
 ---
 title: "Local Deployment"
-description: "Set up OpnForm locally for development"
+description: "Set up vsForms locally for development"
 ---
 
 import CloudVersion from "/snippets/cloud-version.mdx";
@@ -26,7 +26,7 @@ Make sure these components are properly installed and configured on your local m
 2. Clone the repository and install dependencies:
 
    ```bash
-   git clone git@github.com:JhumanJ/OpnForm.git && cd OpnForm
+   git clone git@github.com:JhumanJ/vsForms.git && cd vsForms
    cd api && composer install
    cd ../client && npm install
    ```
@@ -54,11 +54,11 @@ Make sure these components are properly installed and configured on your local m
 6. Set up Herd:
    For detailed instructions on setting up Herd, refer to the [Herd documentation](https://herd.laravel.com/docs).
    - Open the Herd application
-   - Add your OpnForm's `api` directory to Herd
+   - Add your vsForms's `api` directory to Herd
    - Herd will automatically configure a local domain for your project
 
    This will start the Nuxt.js development server, typically on `http://localhost:3000`.
 
-8. Access your local OpnForm installation:
+8. Access your local vsForms installation:
    - The API will be available at the domain provided by Herd (e.g., `http://opnform.test`)
    - The frontend will be accessible at `http://localhost:3000`

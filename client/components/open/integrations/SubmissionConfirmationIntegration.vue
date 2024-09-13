@@ -82,7 +82,7 @@ const emailSubmissionConfirmationHelp = computed(() => {
 onBeforeMount(() => {
   for (const [keyname, defaultValue] of Object.entries({
     respondent_email: emailSubmissionConfirmationField.value !== null,
-    notification_sender: "OpnForm",
+    notification_sender: "vsForms",
     notification_subject: "We saved your answers",
     notification_body:
       "Hello there 👋 <br>This is a confirmation that your submission was successfully saved.",

@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "OpnForm API",
-    "description": "API for interacting with OpnForm, primarily used for Zapier integration",
+    "title": "vsForms API",
+    "description": "API for interacting with vsForms, primarily used for Zapier integration",
     "version": "1.0.0"
   },
   "servers": [

@@ -59,7 +59,7 @@
               Pro Plan
             </h3>
             <p class="mt-2 text-base font-medium leading-7 text-gray-600">
-              OpnForm Pro offers empowering features tailored to the advanced
+              vsForms Pro offers empowering features tailored to the advanced
               needs of teams and creators. Enjoy our free 3-day trial!
             </p>
 
@@ -210,7 +210,7 @@ export default {
       "1 Custom domain",
       "Custom code",
       "Larger file uploads (50mb)",
-      "Remove OpnForm branding",
+      "Remove vsForms branding",
       "Priority support",
       "Form Analytics"
     ],

@@ -16,7 +16,7 @@ If you want to embed your form to your website, copy and paste the following cod
     <script type="text/javascript" onload="initEmbed(\''.$form->slug.'\')" src="'.front_url("widgets/iframe.min.js").'"></script>' }}
 @endcomponent
 
-Finally, we created a **Discord channel** with all the other users to share our news and guides about OpnForm.
+Finally, we created a **Discord channel** with all the other users to share our news and guides about vsForms.
 I would love to see you there, here is the link:
 
 @component('mail::button', ['url' => config('links.discord')])

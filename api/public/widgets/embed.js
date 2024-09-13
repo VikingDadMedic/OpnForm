@@ -118,7 +118,7 @@
   // Iframe popup
   const mainDiv = document.createElement('div')
   mainDiv.className = `nf-main ${position}`
-  mainDiv.innerHTML = `<div class='nf-popup'><iframe src='${formUrl}' frameborder='0' marginheight='0' marginwidth='0' title='OpnForm'></iframe></div>`
+  mainDiv.innerHTML = `<div class='nf-popup'><iframe src='${formUrl}' frameborder='0' marginheight='0' marginwidth='0' title='vsForms'></iframe></div>`
   const iframe = mainDiv.querySelector('iframe')
   iframe.style.maxWidth = `${width}px`
 

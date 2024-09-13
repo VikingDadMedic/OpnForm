@@ -25,7 +25,7 @@
     r && r.remove()
     const p = document.createElement("div");
     (p.className = `nf-main ${i}`),
-      (p.innerHTML = `<div class='nf-popup'><iframe src='${e}' frameborder='0' marginheight='0' marginwidth='0' title='OpnForm'></iframe></div>`)
+      (p.innerHTML = `<div class='nf-popup'><iframe src='${e}' frameborder='0' marginheight='0' marginwidth='0' title='vsForms'></iframe></div>`)
     p.querySelector("iframe").style.maxWidth = `${a}px`
     const s = document.createElement("div");
     (s.className = "nf-emoji"),

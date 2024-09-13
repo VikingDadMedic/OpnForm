@@ -19,7 +19,7 @@
           class="text-white font-semibold"
           href=""
           target="_blank"
-        >🚨 OpnForm beta is over 🚨</a>
+        >🚨 vsForms beta is over 🚨</a>
         <div
           role="button"
           class="text-white absolute right-0 top-0 p-3 cursor-pointer"
@@ -61,7 +61,7 @@ import FeatureBase from "~/components/vendor/FeatureBase.vue"
 export default {
   el: "#app",
 
-  name: "OpnForm",
+  name: "vsForms",
 
   components: { FeatureBase },
 
@@ -78,7 +78,7 @@ export default {
     })
     useHead({
       titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} - OpnForm` : "OpnForm"
+        return titleChunk ? `${titleChunk} - vsForms` : "vsForms"
       },
       meta: [
         {

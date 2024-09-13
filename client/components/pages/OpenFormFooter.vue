@@ -16,54 +16,32 @@
             alt="notion tools logo"
             class="w-10 h-10"
           >
-          <span class="ml-2 text-xl text-black dark:text-white"> OpnForm </span>
+          <span class="ml-2 text-xl text-black dark:text-white"> Voyager Social </span>
         </router-link>
       </div>
       <div class="flex justify-center mt-5 md:mt-0">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-2">
           <a
-            :href="opnformConfig.links.feature_requests"
+            :href="opnformConfig.links.main"
             target="_blank"
             class="text-gray-600 dark:text-gray-400 transition-colors duration-300 hover:text-nt-blue"
           >
-            Feature Requests
+            Voyager Social AI
           </a>
           <a
-            :href="opnformConfig.links.roadmap"
+            :href="opnformConfig.links.vwsm"
             target="_blank"
             class="text-gray-600 dark:text-gray-400 transition-colors duration-300 hover:text-nt-blue"
           >
-            Roadmap
+            Voyager Websites
           </a>
           <a
-            :href="opnformConfig.links.discord"
+            :href="opnformConfig.links.tro"
             target="_blank"
             class="text-gray-600 dark:text-gray-400 transition-colors duration-300 hover:text-nt-blue"
           >
-            Discord
+            Travel Research Online
           </a>
-          <a
-            :href="opnformConfig.links.tech_docs"
-            target="_blank"
-            class="text-gray-600 dark:text-gray-400 transition-colors duration-300 hover:text-nt-blue"
-          >
-            Technical Docs
-          </a>
-          <template v-if="!useFeatureFlag('self_hosted')">
-            <router-link
-              :to="{ name: 'privacy-policy' }"
-              class="text-gray-600 dark:text-gray-400 transition-colors duration-300 hover:text-nt-blue"
-            >
-              Privacy Policy
-            </router-link>
-
-            <router-link
-              :to="{ name: 'terms-conditions' }"
-              class="text-gray-600 dark:text-gray-400 transition-colors duration-300 hover:text-nt-blue"
-            >
-              Terms & Conditions
-            </router-link>
-          </template>
         </div>
       </div>
     </div>

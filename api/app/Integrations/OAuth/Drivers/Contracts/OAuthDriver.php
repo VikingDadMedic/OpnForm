@@ -13,7 +13,7 @@ interface OAuthDriver
     public function canCreateUser(): bool;
 
     /**
-     * Set up all the scopes required by OpnForm for various integrations.
+     * Set up all the scopes required by vsForms for various integrations.
      * This method configures the necessary permissions for the current OAuth driver.
      */
     public function fullScopes(): self;

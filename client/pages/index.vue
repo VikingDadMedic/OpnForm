@@ -279,7 +279,7 @@
         </div>
 
         <p class="mt-12 text-white text-lg">
-          The form below is an OpnForm, give it a try !
+          The form below is an vsForms, give it a try !
         </p>
         <div
           class="md:max-w-5xl md:mx-auto w-full bg-white rounded-md mt-6 p-4 shadow-lg"

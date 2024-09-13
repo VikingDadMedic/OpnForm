@@ -43,7 +43,7 @@
         </p>
         <p class="mb-10 mt-4">
           <router-link :to="{name:'index'}">
-            Create your form for free with OpnForm
+            Create your form for free with vsForms
           </router-link>
         </p>
       </div>
@@ -210,7 +210,7 @@ const headLinks = computed(() => {
   }
   return links
 })
-    
+
 useOpnSeoMeta({
   title: () => {
     if (pageMeta.value.page_title) {
@@ -240,7 +240,7 @@ useHead({
       // Disable template if custom SEO title
       return titleChunk
     }
-    return titleChunk ? `${titleChunk} - OpnForm` : 'OpnForm'
+    return titleChunk ? `${titleChunk} - vsForms` : 'vsForms'
   },
   link: headLinks.value,
   meta: pageMeta.value.page_favicon ? [

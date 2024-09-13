@@ -57,7 +57,7 @@
           title="Pro plan required"
         >
           <template #description>
-            You need a Pro plan to invite new users on OpnForm. Please upgrade on our
+            You need a Pro plan to invite new users on vsForms. Please upgrade on our
             <NuxtLink
               target="_blank"
               class="underline"
