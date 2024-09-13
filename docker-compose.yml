@@ -25,8 +25,6 @@ services:
       AWS_BUCKET: ${AWS_BUCKET}
       AWS_ENDPOINT: ${AWS_ENDPOINT}
       AWS_URL: ${AWS_URL}
-    env_file:
-      - ./api/.env
     volumes:
       - vsforms_storage:/usr/share/nginx/html/storage:rw
     labels:
@@ -42,8 +40,6 @@ services:
     environment:
       <<: *api-environment
       IS_API_WORKER: "true"
-    env_file:
-      - ./api/.env
     volumes:
       - vsforms_storage:/usr/share/nginx/html/storage:rw
     networks:
