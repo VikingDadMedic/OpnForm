@@ -42,8 +42,6 @@ services:
       IS_API_WORKER: "true"
     volumes:
       - vsforms_storage:/usr/share/nginx/html/storage:rw
-    networks:
-      - web
 
   ui:
     image: vstro/vsforms-ui:latest
