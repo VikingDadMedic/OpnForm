@@ -55,19 +55,19 @@
           <h1
             class="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight"
           >
-            Build
+            Professional
             <span
-              class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400"
-            >beautiful forms</span>
+              class="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400"
+            >travel forms</span>
             <br>
-            in seconds
+            for advisors
           </h1>
           <p
             class="mt-4 sm:mt-5 text-base leading-7 sm:text-xl sm:leading-9 font-medium text-gray-500"
           >
-            Create beautiful forms and share them anywhere. It's super fast, you
-            don't need to know how to code. Get started
-            <span class="font-semibold">for free</span>!
+            Streamline your travel advisory business with professional forms designed
+            specifically for client onboarding, travel preferences, and feedback collection.
+            <span class="font-semibold">Get started today!</span>
           </p>
 
           <div class="mt-8 flex justify-center">
@@ -77,7 +77,7 @@
               :to="{ name: 'forms-create-guest' }"
               :arrow="true"
             >
-              Create a form for FREE
+              Create your first form
             </v-button>
             <v-button
               v-else
@@ -85,7 +85,7 @@
               :to="{ name: 'forms-create' }"
               :arrow="true"
             >
-              Create a form for FREE
+              Create your first form
             </v-button>
           </div>
 
@@ -105,7 +105,7 @@
                   d="M4.5 12.75l6 6 9-13.5"
                 />
               </svg>
-              <span>Unlimited forms</span>
+              <span>Travel-specific templates</span>
             </div>
             <div class="flex items-center text-gray-400 text-sm">
               <svg
@@ -122,7 +122,7 @@
                   d="M4.5 12.75l6 6 9-13.5"
                 />
               </svg>
-              <span> Unlimited fields </span>
+              <span>Client-friendly design</span>
             </div>
             <div class="flex text-gray-400 text-sm">
               <svg
@@ -139,7 +139,7 @@
                   d="M4.5 12.75l6 6 9-13.5"
                 />
               </svg>
-              <span>Unlimited responses</span>
+              <span>Secure client data</span>
             </div>
           </div>
         </div>
@@ -203,21 +203,21 @@
 
       <templates-slider class="max-w-full mb-12" />
 
-      <div class="w-full bg-blue-900 p-12 md:p-24 text-center">
+      <div class="w-full bg-primary-700 p-12 md:p-24 text-center">
         <h4 class="font-semibold text-3xl text-white">
-          Take your forms to the next level
+          Elevate your travel advisory business
         </h4>
         <p class="text-gray-300 my-8">
-          Generous, unlimited free plan.
+          Professional forms designed for travel advisors. Start today with our free plan.
         </p>
         <div class="mt-6 flex justify-center">
           <v-button
             v-track.welcome_create_form_click
             :to="{ name: 'forms-create-guest' }"
             :arrow="true"
-            color="blue"
+            color="secondary"
           >
-            Create a form for FREE
+            Get started now
           </v-button>
         </div>
         <div class="flex justify-center mt-6">
@@ -279,7 +279,7 @@
         </div>
 
         <p class="mt-12 text-white text-lg">
-          The form below is an OpnForm, give it a try !
+          See a sample VS Forms travel questionnaire below:
         </p>
         <div
           class="md:max-w-5xl md:mx-auto w-full bg-white rounded-md mt-6 p-4 shadow-lg"
@@ -348,7 +348,7 @@ export default {
 }
 
 .ticks {
-  color: #2563eb;
+  color: var(--color-primary-600);
 }
 
 @screen md {

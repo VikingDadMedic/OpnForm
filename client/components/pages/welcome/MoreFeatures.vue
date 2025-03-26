@@ -2,11 +2,10 @@
   <div class="bg-gray-50 dark:bg-notion-dark py-8">
     <div class="md:max-w-5xl md:mx-auto w-full">
       <div class="my-5 text-center">
-        <h3 class="font-semibold text-3xl">
-          And many more features
-        </h3>
-        <p class="w-full mt-2 mb-8">
-          OpnForm makes form building easy and comes with powerful features.
+        <h3 class="font-semibold text-3xl mb-4">Simple to use. Powerful features.</h3>
+
+        <p class="w-full md:w-2/3 mx-auto mb-5">
+          VS Forms makes form building easy for travel advisors and comes with powerful features that simplify client interactions.
         </p>
         <div
           class="grid grid-cols-2 md:grid-cols-3 mt-10 mb-5 ml-5 md:ml-0 px-4"

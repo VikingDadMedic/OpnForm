@@ -122,7 +122,7 @@
       label="Form Width"
       help="Useful when embedding your form"
     />
-    
+
     <ToggleSwitchInput
       name="layout_rtl"
       :form="form"
@@ -153,21 +153,23 @@
       :form="form"
       label="Hide Title"
     />
-    <toggle-switch-input
-      name="no_branding"
-      :form="form"
-      @update:model-value="onChangeNoBranding"
+    <form-pro-feature
+      tooltip="Remove VS Forms branding and 'Powered by' links from
+              your form, for a more professional look."
+      :show-lock-icon="true"
+      upgrade-modal-title="Upgrade today to remove VS Forms branding"
     >
-      <template #label>
-        <span class="text-sm">
-          Remove OpnForm Branding
-        </span>
-        <pro-tag
-          upgrade-modal-title="Upgrade today to remove OpnForm branding"
-          class="-mt-1"
-        />
+      <template #default="{ toggle }">
+        <div class="w-full">
+          <v-switch
+            :label="'Remove VS Forms Branding'"
+            :model-value="current && current.hide_powered_by"
+            @update:model-value="toggle(() => setPoweredBy(!current.hide_powered_by))"
+            :disabled="!isPro"
+          />
+        </div>
       </template>
-    </toggle-switch-input>
+    </form-pro-feature>
 
     <EditorSectionHeader
       icon="heroicons:cog-6-tooth-16-solid"
@@ -214,7 +216,7 @@ import { useWorkingFormStore } from "../../../../../stores/working_form"
 import GoogleFontPicker from "../../../editors/GoogleFontPicker.vue"
 import ProTag from "~/components/global/ProTag.vue"
 import { DEFAULT_COLOR } from "@/composables/forms/initForm"
-
+import FormProFeature from "~/components/global/FormProFeature.vue"
 
 const workingFormStore = useWorkingFormStore()
 const subscriptionModalStore = useSubscriptionModalStore()
@@ -256,7 +258,7 @@ const onChangeNoBranding = (val) => {
     setTimeout(() => {
       form.value.no_branding = false
     }, 300)
-  } 
+  }
 }
 
 const onApplyFont = (val) => {

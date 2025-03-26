@@ -31,7 +31,7 @@
 import { captureException } from '@sentry/core'
 
 useOpnSeoMeta({
-  title: "404 - Page not found",
+  title: "404 - VS Forms - Page not found",
 })
 
 const props = defineProps({

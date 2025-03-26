@@ -226,7 +226,7 @@ const headLinks = computed(() => {
   }
   return links
 })
-    
+
 useOpnSeoMeta({
   title: () => {
     if (pageMeta.value.page_title) {
@@ -269,7 +269,7 @@ useHead({
       // Disable template if custom SEO title
       return titleChunk
     }
-    return titleChunk ? `${titleChunk} - OpnForm` : 'OpnForm'
+    return titleChunk ? `${titleChunk} - VS Forms` : 'VS Forms'
   },
   link: headLinks.value,
   meta: pageMeta.value.page_favicon ? [

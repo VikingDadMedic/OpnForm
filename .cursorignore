@@ -1,0 +1,6 @@
+.github
+.vscode
+node_modules
+client/.nuxt
+client/node_modules
+api/vendor

@@ -10,14 +10,17 @@
             :to="{ name: user ? 'home' : 'index' }"
             class="flex-shrink-0 font-semibold hover:no-underline flex items-center"
           >
-            <img
-              src="/img/logo.svg"
-              alt="notion tools logo"
-              class="w-8 h-8"
-            >
             <span
-              class="ml-2 text-md hidden sm:inline text-black dark:text-white"
-            >OpnForm</span>
+              v-if="!navbarOptions.hideLogo && !navbarOptions.customLogo"
+              class="w-auto flex justify-center text-gray-900 dark:text-white mr-1"
+            >
+              <Logo class="h-8" />
+            </span>
+
+            <span
+              v-if="!navbarOptions.hideBrand && !navbarOptions.customBrand"
+              class="uppercase tracking-wide font-semibold text-base md:text-lg"
+            >VS Forms</span>
           </NuxtLink>
           <workspace-dropdown class="ml-6" />
         </div>

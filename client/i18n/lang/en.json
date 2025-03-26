@@ -1,13 +1,13 @@
 {
     "app": {
-        "name": "OpnForm"
+        "name": "VS Forms"
     },
     "forms": {
         "powered_by": "Powered by",
         "password_protected": "This form is protected by a password.",
         "invalid_password": "Invalid password.",
         "password_required": "Password is required.",
-        "create_form_free": "Create your form for free with OpnForm",
+        "create_form_free": "Create your form for free with VS Forms",
         "submit": "Submit",
         "wrong_form_structure": "Something is wrong with this form structure. If you're the form owner please contact us.",
         "cannot_access_here": "This content cannot be accessed here. Click the link below to access it.",
@@ -41,4 +41,4 @@
             "clickToOpenCamera": "Click to open a camera"
         }
     }
-} 
+}

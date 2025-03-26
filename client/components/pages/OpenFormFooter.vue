@@ -7,17 +7,10 @@
         </p>
       </div>
       <div class="flex justify-center mt-5 md:mt-0">
-        <router-link
-          :to="{ name: user ? 'home' : 'index' }"
-          class="flex-shrink-0 font-semibold flex items-center"
-        >
-          <img
-            src="/img/logo.svg"
-            alt="notion tools logo"
-            class="w-10 h-10"
-          >
-          <span class="ml-2 text-xl text-black dark:text-white"> OpnForm </span>
-        </router-link>
+        <div class="flex items-center justify-center h-10 md:justify-start">
+          <Logo class="w-6 h-6" />
+          <span class="ml-2 text-xl text-black dark:text-white"> VS Forms </span>
+        </div>
       </div>
       <div class="flex justify-center mt-5 md:mt-0">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-2">

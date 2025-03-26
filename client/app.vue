@@ -61,16 +61,16 @@ import FeatureBase from "~/components/vendor/FeatureBase.vue"
 export default {
   el: "#app",
 
-  name: "OpnForm",
+  name: "VS Forms",
 
   components: { FeatureBase },
 
   setup() {
     const config = useRuntimeConfig()
     useOpnSeoMeta({
-      title: "Beautiful forms & Surveys",
+      title: "Professional Travel Forms",
       description:
-        "Create beautiful forms for free. Unlimited fields, unlimited submissions. It's free and it takes less than 1 minute to create your first form.",
+        "Create professional forms for travel advisors. Streamline client onboarding, collect preferences, and gather feedback with VS Forms.",
       ogImage: "/img/social-preview.jpg",
       robots: () => {
         return config.public.env === "production" ? null : "noindex, nofollow"
@@ -78,7 +78,7 @@ export default {
     })
     useHead({
       titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} - OpnForm` : "OpnForm"
+        return titleChunk ? `${titleChunk} - VS Forms` : "VS Forms"
       },
       meta: [
         {

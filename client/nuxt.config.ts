@@ -9,14 +9,14 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
     css: ['~/scss/app.scss'],
     modules: [
-        '@pinia/nuxt', 
-        '@vueuse/nuxt', 
-        '@vueuse/motion/nuxt', 
+        '@pinia/nuxt',
+        '@vueuse/nuxt',
+        '@vueuse/motion/nuxt',
         '@nuxtjs/sitemap',
-        '@nuxt/ui', 
-        'nuxt-utm', 
+        '@nuxt/ui',
+        'nuxt-utm',
         '@nuxtjs/i18n',
-        '@nuxt/icon', 
+        '@nuxt/icon',
         ...process.env.NUXT_PUBLIC_GTM_CODE ? ['@zadigetvoltaire/nuxt-gtm'] : [],
     ],
     build: {
@@ -129,5 +129,29 @@ export default defineNuxtConfig({
       },
     sitemap,
     runtimeConfig,
-    gtm
+    gtm,
+    app: {
+        head: {
+            title: 'VS Forms | Travel Advisor Forms',
+            meta: [
+                { charset: 'utf-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'VS Forms - Specialized form solution for travel advisors by Voyager Social AI'
+                },
+                // ... other meta tags
+            ],
+            // ... other head elements
+        }
+    },
+    runtimeConfig: {
+        public: {
+            appName: 'VS Forms',
+            companyName: 'Voyager Social AI',
+            // ... other public config
+        },
+        // ... private runtime config
+    },
 })

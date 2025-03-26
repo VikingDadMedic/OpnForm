@@ -257,7 +257,7 @@
               >
                 You can share your forms anywhere using their unique weblink or
                 embed them on your landing pages seamlessly. Furthermore, you
-                can adjust your form’s privacy settings in order to reach the
+                can adjust your form's privacy settings in order to reach the
                 targeted audience and prevent others from viewing your form.
               </p>
             </div>
@@ -632,9 +632,9 @@ definePageMeta({
   middleware: ["self-hosted",]
 })
 useOpnSeoMeta({
-  title: "Free AI form builder",
+  title: "Free AI form builder for travel professionals",
   description:
-    "Transform your ideas into fully functional forms with OpnForm AI Builder – quick, accurate, and tailored to fit any requirement.",
+    "Transform your travel form ideas into fully functional forms with VS Forms AI Builder – quick, accurate, and tailored for travel advisors.",
 })
 defineRouteRules({
   swr: 3600,
